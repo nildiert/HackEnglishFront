@@ -1,0 +1,30 @@
+<div class="card border-left-success">
+    <h5 class="card-header bg-gray-200">Peers</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <div class="row">
+            <div class="col-7">
+                <div *ngFor="let peer of people">
+
+                    <div class="d-flex justify-content-around mb-3">
+                        <div class="mr-auto p-2 bd-highlight">
+                            <img [src]="peer.photo" class="rounded-circle" alt="">
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <h4>{{ peer.name }}</h4>
+                            <p>{{ peer.role }}</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-5">
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+
+        </div>
+    </div>
+</div>
