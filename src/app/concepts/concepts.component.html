@@ -1,0 +1,16 @@
+<div class="card border-left-success">
+  <h5 class="card-header bg-gray-200">Concepts</h5>
+  <div class="card-body">
+    <h1 class="card-title">{{ concepts.title }}</h1>
+    <div class="ml-4">
+      <p class="card-text">{{ concepts.description }}</p>
+      <strong>{{ concepts.project }}</strong>
+      <div *ngFor="let links of concepts.data">
+        <div class="mb-3">
+          <a [href]="links.url" >{{ links.title }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
