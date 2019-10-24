@@ -6,6 +6,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PeersComponent } from './peers/peers.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ConceptsComponent } from './concepts/concepts.component';
+import { SigninComponent } from './signin/signin.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,12 @@ const routes: Routes = [
         component: PeersComponent
       }
     ]
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   }
+
 ];
 
 @NgModule({
