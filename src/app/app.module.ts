@@ -12,11 +12,14 @@ import { ConceptsComponent } from './concepts/concepts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProjectsService } from './projects.service';
+import { ProjectsService } from './services/projects/projects.service';
 import { SigninComponent } from './signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { TaskComponent } from './task/task.component';
+import { TaskModalComponent } from './task-modal/task-modal.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
-    SigninComponent
+    SigninComponent,
+    ProjectDetailComponent,
+    TaskComponent,
+    TaskModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  exports: [
+    TaskComponent
   ],
   providers: [
     ProjectsService

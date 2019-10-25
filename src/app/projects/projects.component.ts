@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { ProjectsService } from '../services/projects/projects.service';
 import { Params, ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../project.model';
-import { Level } from '../level.model';
-import { AuthService } from '../auth.service';
+import { Project } from '../models/project.model';
+import { Level } from '../models/level.model';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-projects',
