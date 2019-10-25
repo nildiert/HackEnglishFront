@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Concept } from '../concept.model';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-concepts',
@@ -8,7 +10,11 @@ import { Concept } from '../concept.model';
 })
 export class ConceptsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {
+    if (!this.authService.logIn) {
+      this.router.navigate(['signin']);
+    }
+   }
 
   concepts = {
     level: 1,
