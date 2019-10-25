@@ -8,16 +8,17 @@
                         <h5 class="modal-title" id="exampleModalLabel"></h5>
                     </div>
                     <div class="modal-body">
-                        <form>
+
+                        <form action="">
                             <div class="form-group">
                                 <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
                                 <label for="formGroupExampleInput" class="bmd-label-floating">Email</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput">
+                                <input type="text" [formControl]="emailField" class="form-control" id="formGroupExampleInput">
                             </div>
                             <div class="form-group bmd-form-group">
                                 <!-- manually specified -->
                                 <label for="formGroupExampleInput2" class="bmd-label-floating">Password</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2">
+                                <input type="password" [formControl]="passwordField" class="form-control" id="formGroupExampleInput2">
                             </div>
                         </form>
                     </div>

@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjectsService } from '../projects.service';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../project.model';
 import { Level } from '../level.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-projects',
@@ -13,8 +14,15 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private projectsService: ProjectsService
-    ) { }
+    private projectsService: ProjectsService,
+    private router: Router,
+    private authService: AuthService
+    ) {
+      if (!this.authService.logIn) {
+        this.router.navigate(['signin']);
+      }
+    }
+
 
     projects: Project[] = [
       {

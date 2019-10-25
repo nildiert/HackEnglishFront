@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url_port : '4000',
+  url_login: 'http://localhost:4000/signin',
+  url_health: 'http://localhost:4000/health'
 };
 
 /*

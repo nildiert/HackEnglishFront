@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-peers',
@@ -7,8 +9,12 @@ import { User } from '../user.model';
   styleUrls: ['./peers.component.scss']
 })
 export class PeersComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private authService: AuthService, private router: Router) {
+    if (!this.authService.logIn) {
+      this.router.navigate(['signin']);
+    }
+   }
 
   people: User[] = [
     {
