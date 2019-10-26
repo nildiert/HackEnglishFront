@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Login } from '../login.model';
-import { SigninService } from '../signin.service';
+import { Login } from '../models/login.model';
+import { SigninService } from '../services/login/signin.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth/auth.service';
 
 
 @Component({

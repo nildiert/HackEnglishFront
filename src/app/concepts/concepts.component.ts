@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Concept } from '../concept.model';
-import { AuthService } from '../auth.service';
+import { Concept } from '../models/concept.model';
+import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

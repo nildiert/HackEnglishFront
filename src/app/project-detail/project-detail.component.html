@@ -1,0 +1,31 @@
+<div class="card border-left-success mb-4">
+    <h5 class="card-header bg-gray-200">'project.name'</h5>
+    <div class="card-body">
+        <div>
+            <p>'Level here'</p>
+            <div class="pl-5">
+                <h4 class="card-title">{{ 'Background Context' }}</h4>
+                <p class="card-text pl-5">{{ 'project.description' }}</p>
+            </div>
+            <div class="pl-5 mt-3">
+                <h4 class="card-title">{{ 'Resources' }}</h4>
+                <ul>
+                    <a href="">
+                        <li>Grammar</li>
+                    </a>
+                    <a href="">
+                        <li>Youglish</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-left-success ">
+        <h5 class="card-header bg-gray-200">Tasks</h5>
+    <app-task *ngFor="let taskData of tasks" [modalEvent]="modalEvent" [taskData]="taskData"></app-task>
+</div>
+
+
+<app-task-modal [modalEvent]="modalEvent"></app-task-modal>

@@ -7,6 +7,7 @@ import { PeersComponent } from './peers/peers.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { SigninComponent } from './signin/signin.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'projects',
         component: ProjectsComponent
+      },
+      {
+        path: 'projects/:id',
+        component: ProjectDetailComponent
       },
       {
         path: 'profile',
