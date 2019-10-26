@@ -24,6 +24,8 @@
 
 <div class="card border-left-success ">
         <h5 class="card-header bg-gray-200">Tasks</h5>
-    <app-task *ngFor="let taskData of tasks" [taskData]="taskData"></app-task>
+    <app-task *ngFor="let taskData of tasks" [modalEvent]="modalEvent" [taskData]="taskData"></app-task>
 </div>
 
+
+<app-task-modal [modalEvent]="modalEvent"></app-task-modal>

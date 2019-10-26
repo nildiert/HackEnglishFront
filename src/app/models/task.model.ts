@@ -5,7 +5,6 @@ export interface Task {
     exercise: string;
     position: number;
     project: number;
-    id_modal: string;
 }
 
 

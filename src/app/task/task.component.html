@@ -9,9 +9,9 @@
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-8 bg-gray-300 rounded p-4">
-            <button class="btn btn-light btn-block  btn-sm" data-toggle="modal" data-target="#exampleModal">Check Task</button>
+            <button class="btn btn-light btn-block btn-sm " (click)="toggleModal(taskData.id)">Check Task</button>
+            <!-- <button class="btn btn-light btn-block  btn-sm"  id="idModal" data-toggle="modal" data-target="#exampleModal" >Check Task</button> -->
         </div>
     </div>
 </div>
 <hr>
-<app-task-modal></app-task-modal>

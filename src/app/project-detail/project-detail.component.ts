@@ -13,6 +13,7 @@ import { TaskComponent } from './../task/task.component';
 })
 export class ProjectDetailComponent implements OnInit {
 
+  modalEvent = new EventEmitter();
   // parentMessage = 'ESte deberia ser el titulo';
   constructor() { }
   tasks: Task[] = [{
@@ -22,7 +23,6 @@ export class ProjectDetailComponent implements OnInit {
     exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
     position: 1,
     project: 1,
-    id_modal: 'task_1'
   },
   {
     id: 2,
@@ -31,7 +31,6 @@ export class ProjectDetailComponent implements OnInit {
     exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
     position: 2,
     project: 1,
-    id_modal: 'task_2'
   },
   {
     id: 3,
@@ -40,7 +39,6 @@ export class ProjectDetailComponent implements OnInit {
     exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
     position: 3,
     project: 1,
-    id_modal: 'task_1'
   }];
 
   ngOnInit() {

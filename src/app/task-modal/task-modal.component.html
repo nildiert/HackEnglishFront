@@ -9,17 +9,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="">
-                <div class="modal-body">    
-                    <div id="insert">
-                        
-                    </div>
+            <form action="" [formGroup]="entryForm">
+                <div class="modal-body">
+                    <ng-container *ngFor="let item of textEnd">
+                        <ng-container *ngIf="isString(item); else elseTemplate">
+                            {{ item }}
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <input matInput formControlName="{{ item.input }}"  placeholder=""
+                                mat-raised-button="f[item.input].errors" />
+                            <span>
+
+                            </span>
+                        </ng-template>
+                    </ng-container>
                 </div>
             </form>
             <div class="modal-footer justify-content-between">
                 <div class="w-100">
                     <div class="text-center d-flex justify-content-center bg-gray-300 rounded p-2">
-                        <button class="btn btn-light btn-block btn-sm" type="button">Check your task</button>
+                        <button class="btn btn-light btn-block btn-sm" (click)="send()" type="button">Check your task</button>
                     </div>
                 </div>
             </div>
