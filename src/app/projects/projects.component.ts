@@ -4,6 +4,10 @@ import { Params, ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../models/project.model';
 import { Level } from '../models/level.model';
 import { AuthService } from '../services/auth/auth.service';
+import { HttpService } from '../services/http/http.service';
+import { Role } from '../models/role.model';
+import { RolesService } from '../services/roles/roles.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-projects',
@@ -12,52 +16,51 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class ProjectsComponent implements OnInit {
 
+  role: Role[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private projectsService: ProjectsService,
     private router: Router,
-    private authService: AuthService
-    ) {
-      if (!this.authService.logIn) {
-        this.router.navigate(['signin']);
-      }
+    private authService: AuthService,
+    private httpService: HttpService,
+    private rolesService: RolesService
+  ) {
+    if (!this.authService.logIn) {
+      this.router.navigate(['signin']);
     }
 
+  }
 
-    projects: Project[] = [
-      {
-        id: 1,
-        name: 'A1 - Lesson 01 - Greetings and Introductions',
-        description: 'Asking for and giving personal information',
-        position: 1,
-        level_id: 1
-      },
-      {
-        id: 2,
-        name: 'A1 - Lesson 02 - Alphabet & Spelling',
-        description: 'Letters of alphabet, Spelling practice',
-        position: 2,
-        level_id: 1
-      },
-      {
-        id: 3,
-        name: 'A1 - Lesson 01 - Greetings and Introductions',
-        description: 'Asking for and giving personal information',
-        position: 3,
-        level_id: 1
-      }
-    ];
 
-    courses: Level[] = [
-      {
-        title: 'A1 - Elementary English Course',
-        description: 'In this course you will: Learn how to form important verbs., Talk about daily routine.',
-        finished: 4,
-        total: 60
-      }
-    ];
+  projects: Project[] = [];
+
+  courses: Level[] = [
+    {
+      title: 'A1 - Elementary English Course',
+      description: 'In this course you will: Learn how to form important verbs., Talk about daily routine.',
+      finished: 4,
+      total: 60
+    }
+  ];
 
   ngOnInit() {
+    this.projectsByUser();
 
   }
+
+  roles() {
+    this.rolesService.getRoles()
+      .subscribe((response: any) => {
+        console.log(response);
+      });
+  }
+
+  projectsByUser() {
+    this.projectsService.projectsByUser(localStorage.user_id)
+    .subscribe((response: any) => {
+      this.projects = response;
+    });
+  }
+
 }

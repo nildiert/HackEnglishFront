@@ -1,6 +1,7 @@
 import { EventEmitter, Component, OnInit, Input } from '@angular/core';
 import { Task } from '../models/task.model';
 import { Subject } from 'rxjs';
+declare var $: any;
 
 @Component({
   selector: 'app-task',
@@ -24,9 +25,10 @@ export class TaskComponent implements OnInit {
   }
 
   toggleModal(id: string) {
-    this.modalEvent.emit({id});
+    this.modalEvent.next({id});
     this.idTask = id;
-    $("#exampleModal").modal('show');
+    // document.getElementById('exampleModal').click();
+    $('#exampleModal').modal('show');
   }
 
 }

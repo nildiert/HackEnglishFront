@@ -1,41 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../../models/project.model';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../http/http.service';
+import { ProjectDetail } from 'src/app/models/projectDetail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
+  projects: Project[];
+  httpOptions: any;
 
-
-  projects: Project[] = [
-    {
-      id: 1,
-      name: 'A1 - Lesson 01 - Greetings and Introductions',
-      description: 'Asking for and giving personal information',
-      position: 1,
-      level_id: 1
-    },
-    {
-      id: 2,
-      name: 'A1 - Lesson 02 - Alphabet & Spelling',
-      description: 'Letters of alphabet, Spelling practice',
-      position: 2,
-      level_id: 1
-    },
-    {
-      id: 3,
-      name: 'A1 - Lesson 01 - Greetings and Introductions',
-      description: 'Asking for and giving personal information',
-      position: 3,
-      level_id: 1
-    }
-  ];
-
-  constructor() { }
+  constructor(private http: HttpClient, httpService: HttpService) {
+    this.httpOptions = httpService.httpOptions;
+  }
 
   getAllProjects() {
     return this.projects;
   }
+  projectsByUser(userId: string) {
+    return this.http.get<Project[]>(
+      environment.url_projects_by_users + `${userId}/user_projects`,
+      this.httpOptions
+    );
+  }
+
+  projectDetail(projectId: string) {
+    return this.http.get<ProjectDetail>(
+      environment.url_projects + `${projectId}`,
+      this.httpOptions
+    );
+  }
+
 
 }

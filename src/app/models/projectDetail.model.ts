@@ -1,10 +1,9 @@
-export interface Project {
-    project: {
+
+export interface ProjectDetail {
         id: number;
         name: string;
         description: string;
         position: number;
         level: string;
-    };
-    finished: number;
+        concepts: any;
 }
