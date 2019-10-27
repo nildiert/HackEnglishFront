@@ -3,9 +3,9 @@
     <div class="card-body">
         <div *ngFor="let project of projects">
             <strong>
-                <a [routerLink]="['/projects', project.id]"><h3 class="card-title">{{ project.name }}</h3></a>
+                <a [routerLink]="['/projects', project.project.id]"><h3 class="card-title">{{ project.project.level }} - {{ project.project.name }}</h3></a>
             </strong>
-            <p class="card-text">{{ project.description }}</p>
+            <p class="card-text">{{ project.project.description }}</p>
             <hr>
         </div>
     </div>

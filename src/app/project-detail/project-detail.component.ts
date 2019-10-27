@@ -5,6 +5,9 @@ import {
 } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TaskComponent } from './../task/task.component';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectDetail } from '../models/projectDetail.model';
+import { ProjectsService } from '../services/projects/projects.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -14,8 +17,14 @@ import { TaskComponent } from './../task/task.component';
 export class ProjectDetailComponent implements OnInit {
 
   modalEvent = new EventEmitter();
+  routeId: string;
   // parentMessage = 'ESte deberia ser el titulo';
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService) {
+    this.routeId = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+
+  project: ProjectDetail;
+
   tasks: Task[] = [{
     id: 1,
     title: 'TAsk 1',
@@ -42,6 +51,13 @@ export class ProjectDetailComponent implements OnInit {
   }];
 
   ngOnInit() {
+    this.projectDescription();
   }
 
+  projectDescription() {
+    this.projectsService.projectDetail(this.routeId)
+    .subscribe((response: any) => {
+      this.project = response;
+    });
+  }
 }
