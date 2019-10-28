@@ -15,13 +15,12 @@ export class TaskComponent implements OnInit {
   idTask: string;
   index: number;
   myElements: string[];
-  insert = document.getElementById('insert');
-  message = 'Hola mi #perro que hace o que pedos?, seguro anda #tocandote, que asquito, llave';
 
   constructor() { }
-  @Input() taskData: Task;
+  @Input() taskData: Task[];
 
   ngOnInit() {
+    // console.log(this.taskData)
   }
 
   toggleModal(id: string) {

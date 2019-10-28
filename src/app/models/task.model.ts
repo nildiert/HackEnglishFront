@@ -4,13 +4,5 @@ export interface Task {
     description: string;
     exercise: string;
     position: number;
-    project: number;
+    project_id: number;
 }
-
-
-
-
-
-
-
-

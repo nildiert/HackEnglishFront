@@ -1,3 +1,4 @@
+import { Concept } from './concept.model';
 
 export interface ProjectDetail {
         id: number;
@@ -5,5 +6,5 @@ export interface ProjectDetail {
         description: string;
         position: number;
         level: string;
-        concepts: any;
+        concepts: Concept[];
 }
