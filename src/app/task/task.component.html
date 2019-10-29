@@ -1,16 +1,16 @@
 <div class="card-body">
     <div class="pl-5">
         <div class="mb-2">
-            <h4 class="card-title">{{ taskData.title }}</h4>
+            <h4 class="card-title">{{ taskData.task.title }}</h4>
         </div>
         <div class="mb-5">
-            <p class="card-text pl-5 ">{{ taskData.description }}</p>
-            <p class="card-text pl-5 ">{{ taskData.exercise }}</p>
+            <p class="card-text pl-5 ">{{ taskData.task.description }}</p>
+            <p class="card-text pl-5 ">{{ taskData.task.exercise }}</p>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-8 bg-gray-300 rounded p-4">
-            <button class="btn btn-light btn-block btn-sm " (click)="toggleModal(taskData.id)">Check Task</button>
+            <button class="btn btn-light btn-block btn-sm " (click)="toggleModal(taskData.task.id)">Check Task</button>
             <!-- <button class="btn btn-light btn-block  btn-sm"  id="idModal" data-toggle="modal" data-target="#exampleModal" >Check Task</button> -->
         </div>
     </div>
