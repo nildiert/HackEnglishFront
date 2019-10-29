@@ -18,7 +18,7 @@ export class ProjectDetailComponent implements OnInit {
 
   modalEvent = new EventEmitter();
   routeId: string;
-  project: ProjectDetail[] = [];
+  project: ProjectDetail;
   // parentMessage = 'ESte deberia ser el titulo';
   constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService) {
     this.routeId = this.activatedRoute.snapshot.paramMap.get('id');

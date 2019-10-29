@@ -17,7 +17,7 @@ export class TaskComponent implements OnInit {
   myElements: string[];
 
   constructor() { }
-  @Input() taskData: Task[];
+  @Input() taskData: Task;
 
   ngOnInit() {
     // console.log(this.taskData)
