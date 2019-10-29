@@ -1,4 +1,6 @@
 export interface Concept {
-    name: string;
-    url: string;
+    id: number;
+    title: string;
+    link: string;
+    position: number;
 }

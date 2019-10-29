@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { TaskComponent } from './task/task.component';
 import { TaskModalComponent } from './task-modal/task-modal.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { TaskModalComponent } from './task-modal/task-modal.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SweetAlert2Module
   ],
   exports: [
     TaskComponent

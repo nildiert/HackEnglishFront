@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Exercise } from '../models/exercise.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
+import { TaskService } from '../services/task/task.service';
+import { Task } from '../models/task.model';
+import swal from 'sweetalert2';
+
 type textType = string | { input: string };
 interface Options {
   [key: string]: string[];
@@ -24,21 +28,17 @@ export class TaskModalComponent implements OnInit {
   private options: Options = { first: ['am', 'am.'] };
   subscriptions: Subscription[] = [];
 
-  messages = {
-          task1: 'Este es un #campo de como se #envia que debe #enviar esto',
-    task2: 'El #cosito de andres',
-    task3: 'El #cosits de los dos #info destroyer'
-  };
+  messages2: Task[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private taskService: TaskService) {
     this.entryForm = this.formBuilder.group({});
   }
 
+
   ngOnInit() {
-    this.subscriptions.push(this.modalEvent.subscribe(value => {
-      this.initDynamicallyForm(this.messages['task' + value.id]);
-      console.log(value, this.messages['task' + value.id]);
-    }));
+    this.modalEvent.subscribe(value => {
+      this.getTask(value.id);
+    });
   }
 
   initDynamicallyForm(message: string) {
@@ -80,12 +80,27 @@ export class TaskModalComponent implements OnInit {
         control.markAsTouched();
       }
     }
+    Object.keys(this.entryForm.value).forEach(key => {
+      if (key === this.entryForm.value[key]) {
+        $(`#${key}`).addClass('green');
+      } else {
+        $(`#${key}`).addClass('red');
+      }
+    });
 
-    console.log(this.entryForm.value);
+    // console.log(this.entryForm.value);
   }
 
 
   isString(value: any) {
     return typeof value === 'string';
   }
+
+  getTask(taskId: string) {
+    this.taskService.getTask(taskId)
+    .subscribe((response: any) => {
+      this.initDynamicallyForm(response.exercise);
+    });
+  }
+
 }

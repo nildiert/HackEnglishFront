@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../http/http.service';
 import { ProjectDetail } from 'src/app/models/projectDetail.model';
+import { Task } from 'src/app/models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,11 @@ export class ProjectsService {
     );
   }
 
+  taskByProject(projectId: string) {
+    return this.http.get<Task>(
+      environment.url_task_by_projects + `${projectId}/task_assignments`,
+      this.httpOptions
+    );
+  }
 
 }

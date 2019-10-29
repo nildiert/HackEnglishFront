@@ -18,46 +18,32 @@ export class ProjectDetailComponent implements OnInit {
 
   modalEvent = new EventEmitter();
   routeId: string;
+  project: ProjectDetail[] = [];
   // parentMessage = 'ESte deberia ser el titulo';
   constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService) {
     this.routeId = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
-  project: ProjectDetail;
-
-  tasks: Task[] = [{
-    id: 1,
-    title: 'TAsk 1',
-    description: 'ljskdf sldfkaj sdfk saf klfjslkf sadklfj sadljk slkdj sdf ',
-    exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
-    position: 1,
-    project: 1,
-  },
-  {
-    id: 2,
-    title: 'TAsk 2',
-    description: 'ljskdf sldfkaj sdfk saf klfjslkf sadklfj sadljk slkdj sdf ',
-    exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
-    position: 2,
-    project: 1,
-  },
-  {
-    id: 3,
-    title: 'TAsk 3',
-    description: 'ljskdf sldfkaj sdfk saf klfjslkf sadklfj sadljk slkdj sdf ',
-    exercise: 'sdfk ljsdlkfj sksf d# sdjfkl jksdlf # sjdlkf kjsdfl #',
-    position: 3,
-    project: 1,
-  }];
+  tasks: Task[] = [];
 
   ngOnInit() {
     this.projectDescription();
+    this.taskByProject();
   }
 
   projectDescription() {
     this.projectsService.projectDetail(this.routeId)
     .subscribe((response: any) => {
       this.project = response;
+      // console.log(response);
     });
   }
+
+  taskByProject() {
+    this.projectsService.taskByProject(this.routeId)
+    .subscribe((response: any) => {
+      this.tasks = response;
+    });
+  }
+
 }

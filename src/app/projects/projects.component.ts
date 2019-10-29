@@ -52,7 +52,7 @@ export class ProjectsComponent implements OnInit {
   roles() {
     this.rolesService.getRoles()
       .subscribe((response: any) => {
-        console.log(response);
+        // console.log(response);
       });
   }
 
@@ -60,6 +60,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.projectsByUser(localStorage.user_id)
     .subscribe((response: any) => {
       this.projects = response;
+      // console.log(this.projects);
     });
   }
 
