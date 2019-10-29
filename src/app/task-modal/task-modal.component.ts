@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { TaskService } from '../services/task/task.service';
 import { Task } from '../models/task.model';
+import { Checker } from '../models/checker.model';
 import swal from 'sweetalert2';
 declare var $: any;
 
@@ -13,12 +14,15 @@ interface Options {
   [key: string]: string[];
 }
 
+
 @Component({
   selector: 'app-task-modal',
   templateUrl: './task-modal.component.html',
   styleUrls: ['./task-modal.component.scss']
 })
 export class TaskModalComponent implements OnInit {
+
+  checkers: Checker[] = [];
 
   // tslint:disable-next-line: no-input-rename
   @Input('modalEvent') public modalEvent: Subject<{ id: string }>;
@@ -56,6 +60,7 @@ export class TaskModalComponent implements OnInit {
   }
 
   send(): void {
+    this.checkers = [];
     const entryForm = this.entryForm.controls;
     // this.submitted = true;
     for (const key in entryForm) {
@@ -83,13 +88,11 @@ export class TaskModalComponent implements OnInit {
       }
     }
     Object.keys(this.entryForm.value).forEach(key => {
-      if (key === this.entryForm.value[key]) {
-        $(`#${key}`).addClass('green');
-      } else {
-        $(`#${key}`).addClass('red');
-      }
+        this.checkers.push({
+          id: key,
+          value: key === this.entryForm.value[key]
+        });
     });
-    // console.log(this.entryForm.value);
 
   }
 
@@ -104,5 +107,6 @@ export class TaskModalComponent implements OnInit {
       this.initDynamicallyForm(response.exercise);
     });
   }
+
 
 }

@@ -25,6 +25,13 @@
                     </ng-container>
                 </div>
             </form>
+            <div class="modal-footer justify-content-between" *ngIf="checkers.length">
+                <div class="w-100">
+                    <ng-container *ngFor="let checker of checkers">
+                        <app-checker [check]="checker"></app-checker>
+                    </ng-container>
+                </div>
+            </div>
             <div class="modal-footer justify-content-between">
                 <div class="w-100">
                     <div class="text-center d-flex justify-content-center bg-gray-300 rounded p-2">
