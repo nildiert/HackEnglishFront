@@ -5,6 +5,8 @@ import { Subject, Subscription } from 'rxjs';
 import { TaskService } from '../services/task/task.service';
 import { Task } from '../models/task.model';
 import swal from 'sweetalert2';
+declare var $: any;
+
 
 type textType = string | { input: string };
 interface Options {
@@ -81,14 +83,14 @@ export class TaskModalComponent implements OnInit {
       }
     }
     Object.keys(this.entryForm.value).forEach(key => {
-      // if (key === this.entryForm.value[key]) {
-      //   $(`#${key}`).addClass('green');
-      // } else {
-      //   $(`#${key}`).addClass('red');
-      // }
+      if (key === this.entryForm.value[key]) {
+        $(`#${key}`).addClass('green');
+      } else {
+        $(`#${key}`).addClass('red');
+      }
     });
-
     // console.log(this.entryForm.value);
+
   }
 
 
