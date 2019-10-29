@@ -1,0 +1,13 @@
+
+    <button type="button" class="btn btn-outline-success ml-1 mr-1 mb-1" *ngIf="check.value">
+        <fa-icon [icon]="faCheckCircle"></fa-icon>
+        Check
+    </button>
+
+
+<!-- <i class="fas fa-check-circle"></i> -->
+
+<button type="button" class="btn btn-outline-danger ml-1 mr-1 mb-1" *ngIf="check.value === false">
+        <fa-icon [icon]="faTimesCircle"></fa-icon>
+        Check
+    </button> 

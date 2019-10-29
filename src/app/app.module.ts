@@ -20,7 +20,8 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { TaskComponent } from './task/task.component';
 import { TaskModalComponent } from './task-modal/task-modal.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
+import { CheckerComponent } from './checker/checker.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SigninComponent,
     ProjectDetailComponent,
     TaskComponent,
-    TaskModalComponent
+    TaskModalComponent,
+    CheckerComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    FontAwesomeModule
   ],
   exports: [
     TaskComponent
