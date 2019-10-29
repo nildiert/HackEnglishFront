@@ -81,11 +81,11 @@ export class TaskModalComponent implements OnInit {
       }
     }
     Object.keys(this.entryForm.value).forEach(key => {
-      if (key === this.entryForm.value[key]) {
-        $(`#${key}`).addClass('green');
-      } else {
-        $(`#${key}`).addClass('red');
-      }
+      // if (key === this.entryForm.value[key]) {
+      //   $(`#${key}`).addClass('green');
+      // } else {
+      //   $(`#${key}`).addClass('red');
+      // }
     });
 
     // console.log(this.entryForm.value);
