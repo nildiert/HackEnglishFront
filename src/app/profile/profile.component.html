@@ -12,29 +12,29 @@
                                 <p>{{ user.role | titlecase }} </p>
                             </div>
                             <div class="text-right bg-gray-200 pt-2 pb-2 pr-4 rounded">
-                                <strong><h4>412</h4></strong>
+                                <strong><h4>{{ user.score }}</h4></strong>
                             </div>
                         </div>
                 </div>
                 <div class="col-7">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                          <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" [placeholder]="user.first_name">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter lastname">
+                          <input type="text" class="form-control" id="last_name" aria-describedby="emailHelp" [placeholder]="user.last_name">
                         </div>
                         <div class="form-group">
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" [placeholder]="user.email">
                         </div>
                         <div class="form-group">
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Last password">
+                          <input type="password" class="form-control" id="last_password" placeholder="Last password" [value]="user.password" [placeholder]="user.password">
                         </div>
                         <div class="form-group">
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New password">
+                          <input type="password" class="form-control" id="new_password" placeholder="New password">
                         </div>
                         <div class="form-group">
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm password">
+                          <input type="password" class="form-control" id="confirm_password" placeholder="Confirm password">
                         </div>
                         <button type="submit" class="btn btn pull-right btn-success">Submit</button>
                       </form>

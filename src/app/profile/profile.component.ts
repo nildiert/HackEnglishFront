@@ -11,6 +11,7 @@ import { PeopleService } from '../services/people/people.service';
 })
 export class ProfileComponent implements OnInit {
 
+  pass = '';
   constructor(private authService: AuthService, private router: Router, private peopleService: PeopleService) {
     if (!this.authService.logIn) {
       this.router.navigate(['signin']);
