@@ -5,11 +5,11 @@
                 <div class="col-5 d-flex justify-content-center">
                         <div class=" mb-3">
                             <div class="mr-auto p-2 bd-highlight">
-                                <img [src]="user.photo" class="rounded-circle" alt="">
+                                <img [src]="user.profile_pic" class="rounded-circle" alt="">
                             </div>
                             <div class="text-center">
-                                <h4>{{ user.name }}</h4>
-                                <p>{{ user.role }}</p>
+                                <h4>{{ user.first_name }} {{ user.last_name }} </h4>
+                                <p>{{ user.role | titlecase }} </p>
                             </div>
                             <div class="text-right bg-gray-200 pt-2 pb-2 pr-4 rounded">
                                 <strong><h4>412</h4></strong>
