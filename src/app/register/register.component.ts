@@ -42,12 +42,15 @@ export class RegisterComponent implements OnInit {
         password: this.passwordField.value,
         first_name: this.firstName.value,
         last_name: this.lastName.value,
+        profile_pic: 'https://i.pinimg.com/originals/dd/49/dd/dd49dd83e894321a9402465c98ebc386.jpg',
         score: 0
       }
     };
     this.registerService.signUp(newUser)
     .subscribe((response: any) => {
-      console.log(response);
+      if (response.message) {
+        this.router.navigate(['signin']);
+      }
     });
   }
 
