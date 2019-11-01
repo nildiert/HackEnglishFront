@@ -2,10 +2,13 @@ body {
     margin: 0;
     font-family: "Lato", sans-serif;
   }
-  img {
+  .photo {
     border-radius: 50%;
     width: 80px;
     height: 80px;
+  }
+  .logo {
+   width: 100%; 
   }
   
   .sidebar {
@@ -71,3 +74,4 @@ body {
     }
     
   }
+
