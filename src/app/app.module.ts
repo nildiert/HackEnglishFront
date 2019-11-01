@@ -22,6 +22,7 @@ import { TaskModalComponent } from './task-modal/task-modal.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CheckerComponent } from './checker/checker.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProjectDetailComponent,
     TaskComponent,
     TaskModalComponent,
-    CheckerComponent
+    CheckerComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

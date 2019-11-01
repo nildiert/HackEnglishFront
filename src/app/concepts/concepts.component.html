@@ -1,16 +1,26 @@
 <div class="card border-left-success">
   <h5 class="card-header bg-gray-200">Concepts</h5>
   <div class="card-body">
-    <h1 class="card-title">{{ concepts.title }}</h1>
-    <div class="ml-4">
-      <p class="card-text">{{ concepts.description }}</p>
-      <strong>{{ concepts.project }}</strong>
-      <div *ngFor="let links of concepts.data">
-        <div class="mb-3">
-          <a [href]="links.url" >{{ links.title }}</a>
+    <div>
+      <h1 class="card-title mt-2">{{ concepts.title }}</h1>
+      <div class="ml-4">
+        <p class="card-text">{{ concepts.description }}</p>
+        <div>
+          <div class="mt-2" *ngFor="let project of concepts.projects">
+            <h2>{{ project.id }}. {{ project.name }}</h2>
+            <p>{{ project.description }}</p>
+            <ul>
+              <div *ngFor="let link of project.concepts">
+                <div class="ml-4">
+                  <li><a [href]="link.link" target="_blank">{{ link.title }}</a></li>
+                </div>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
 
   </div>
 </div>

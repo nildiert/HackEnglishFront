@@ -35,6 +35,8 @@ export class TaskModalComponent implements OnInit {
   subscriptions: Subscription[] = [];
 
   messages2: Task[] = [];
+  show = true;
+  showFooter = false;
 
   constructor(private formBuilder: FormBuilder, private taskService: TaskService) {
     this.entryForm = this.formBuilder.group({});
@@ -46,6 +48,7 @@ export class TaskModalComponent implements OnInit {
       this.getTask(value.id);
       this.checkers = [];
     });
+    this.show = false;
   }
 
   initDynamicallyForm(message: string) {
@@ -58,6 +61,14 @@ export class TaskModalComponent implements OnInit {
         return { input: slice };
       } else { return text; }
     });
+  }
+
+  animation() {
+    this.show = true;
+    this.showFooter = true;
+    setTimeout(() => {
+      this.send();
+    }, 3000);
   }
 
   send(): void {
@@ -80,12 +91,15 @@ export class TaskModalComponent implements OnInit {
         control.markAsTouched();
       }
     }
+
     Object.keys(this.entryForm.value).forEach(key => {
       this.checkers.push({
         id: key,
         value: key === this.entryForm.value[key]
       });
+      this.show = false;
     });
+
   }
 
 

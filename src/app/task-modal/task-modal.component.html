@@ -16,7 +16,7 @@
                             {{ item }}
                         </ng-container>
                         <ng-template #elseTemplate>
-                            <input matInput formControlName="{{ item.input }}"  placeholder=""
+                            <input matInput formControlName="{{ item.input }}" placeholder=""
                                 mat-raised-button="f[item.input].errors" />
                             <span>
 
@@ -25,20 +25,27 @@
                     </ng-container>
                 </div>
             </form>
-            <div class="modal-footer justify-content-between" *ngIf="checkers.length">
-                <div class="w-100">
+            <div class="modal-footer justify-content-center" *ngIf="showFooter">
+                <div class="text-center" *ngIf="show">
+                    <div class="lds-ellipsis" >
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="w-100 text-center" *ngIf="show === false">
                     <ng-container *ngFor="let checker of checkers">
                         <app-checker [check]="checker"></app-checker>
                     </ng-container>
                 </div>
             </div>
-            <div class="modal-footer justify-content-between">
                 <div class="w-100">
-                    <div class="text-center d-flex justify-content-center bg-gray-300 rounded p-2">
-                        <button  class="btn btn-light btn-block btn-sm" (click)="send()" type="button">Check your task</button>
+                    <div class="text-center ml-3 mb-3 mr-3 d-flex justify-content-center bg-gray-300 rounded p-2">
+                            <button class="btn btn-light btn-block btn-sm" (click)="animation()" type="button">Check your
+                                task</button>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

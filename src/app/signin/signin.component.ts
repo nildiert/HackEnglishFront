@@ -44,7 +44,7 @@ export class SigninComponent implements OnInit {
           if (response) {
             localStorage.setItem('auth_token', response.auth_token);
             localStorage.setItem('user_id', response.user_id);
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['projects']);
           } else {
             console.log('null');
           }

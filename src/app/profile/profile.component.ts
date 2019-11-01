@@ -32,4 +32,9 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['signin']);
+  }
+
 }

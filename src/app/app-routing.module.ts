@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { SigninComponent } from './signin/signin.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/projects',
         pathMatch: 'full',
       },
       {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 
 ];
