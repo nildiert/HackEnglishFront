@@ -13,7 +13,8 @@ export class CheckerComponent implements OnInit {
   faCheckCircle = faCheckCircle;
   faTimesCircle = faTimesCircle;
   @Input() check: Checker;
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

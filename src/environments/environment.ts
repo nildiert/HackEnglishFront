@@ -11,6 +11,7 @@ export const environment = {
   url_projects: 'http://40.76.39.221:3000/projects/',
   url_task_by_projects: 'http://40.76.39.221:3000/user_projects/',
   url_task: 'http://40.76.39.221:3000/tasks/',
+  url_user: 'http://40.76.39.221:3000/users/',
 };
 
 /*

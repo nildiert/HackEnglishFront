@@ -1,5 +1,17 @@
 img {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container-img {
+    position: relative;
+    text-align: center;
+    color: white;
   }

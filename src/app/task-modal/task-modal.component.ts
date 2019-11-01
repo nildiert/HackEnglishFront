@@ -44,6 +44,7 @@ export class TaskModalComponent implements OnInit {
   ngOnInit() {
     this.modalEvent.subscribe(value => {
       this.getTask(value.id);
+      this.checkers = [];
     });
   }
 
@@ -73,27 +74,18 @@ export class TaskModalComponent implements OnInit {
           !options.find(option => String(value).toLowerCase() === option)
         ) {
           control.setErrors({
-            /**
-             * @description
-             * `Message to show when the {value} is diferent to the`
-             * `array of options`
-             */
             diferent: 'Is Diferent'
           });
         }
-        /**
-         * @description `Realiza validaciones en todos los formularios`
-         */
         control.markAsTouched();
       }
     }
     Object.keys(this.entryForm.value).forEach(key => {
-        this.checkers.push({
-          id: key,
-          value: key === this.entryForm.value[key]
-        });
+      this.checkers.push({
+        id: key,
+        value: key === this.entryForm.value[key]
+      });
     });
-
   }
 
 
@@ -103,9 +95,9 @@ export class TaskModalComponent implements OnInit {
 
   getTask(taskId: string) {
     this.taskService.getTask(taskId)
-    .subscribe((response: any) => {
-      this.initDynamicallyForm(response.exercise);
-    });
+      .subscribe((response: any) => {
+        this.initDynamicallyForm(response.exercise);
+      });
   }
 
 

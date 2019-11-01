@@ -1,6 +1,7 @@
 import { EventEmitter, Component, OnInit, Input } from '@angular/core';
 import { Task } from '../models/task.model';
 import { Subject } from 'rxjs';
+import { Checker } from '../models/checker.model';
 declare var $: any;
 
 @Component({
@@ -15,6 +16,7 @@ export class TaskComponent implements OnInit {
   idTask: string;
   index: number;
   myElements: string[];
+  checkers: Checker[] = [];
 
   constructor() { }
   @Input() taskData: Task[];
@@ -28,6 +30,7 @@ export class TaskComponent implements OnInit {
     this.idTask = id;
     // document.getElementById('exampleModal').click();
     $('#exampleModal').modal('show');
+    
   }
 
 }

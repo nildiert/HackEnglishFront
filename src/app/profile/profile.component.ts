@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { PeopleService } from '../services/people/people.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,20 +11,25 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) {
+  pass = '';
+  constructor(private authService: AuthService, private router: Router, private peopleService: PeopleService) {
     if (!this.authService.logIn) {
       this.router.navigate(['signin']);
     }
    }
-  user: User =
-    {
-      name: 'Miyah Myles',
-      role: 'Student',
-      photo: 'https:\/\/randomuser.me\/api\/portraits\/women\/44.jpg'
-    };
+  user: User[] = [];
 
 
   ngOnInit() {
+    this.getPeers();
+  }
+
+  getPeers() {
+    this.peopleService.getUser(localStorage.user_id)
+    .subscribe((response: any) => {
+      this.user = response;
+      console.log(this.user);
+    });
   }
 
 }

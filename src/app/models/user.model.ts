@@ -1,5 +1,17 @@
 export interface User {
-    name: string;
+    auth_token: string;
+    created_at: string;
+    description: string;
+    email: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    password: string;
+    profile_pic: string;
     role: string;
-    photo: string;
+    score: string;
+    status: number;
+    updated_at: string;
 }
+
+
