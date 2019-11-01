@@ -19,7 +19,6 @@ export class ProjectDetailComponent implements OnInit {
   modalEvent = new EventEmitter();
   routeId: string;
   project: ProjectDetail[];
-  // parentMessage = 'ESte deberia ser el titulo';
   constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService) {
     this.routeId = this.activatedRoute.snapshot.paramMap.get('id');
   }
@@ -35,7 +34,6 @@ export class ProjectDetailComponent implements OnInit {
     this.projectsService.projectDetail(this.routeId)
     .subscribe((response: any) => {
       this.project = response;
-      // console.log(response);
     });
   }
 

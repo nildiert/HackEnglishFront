@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
     this.peopleService.getUser(localStorage.user_id)
     .subscribe((response: any) => {
       this.user = response;
-      console.log(this.user);
     });
   }
 
