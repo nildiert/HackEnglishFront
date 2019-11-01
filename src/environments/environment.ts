@@ -12,6 +12,8 @@ export const environment = {
   url_task_by_projects: 'http://40.76.39.221:3000/user_projects/',
   url_task: 'http://40.76.39.221:3000/tasks/',
   url_user: 'http://40.76.39.221:3000/users/',
+  url_concepts: 'http://40.76.39.221:3000/user_info_level_concepts/',
+  url_register: 'http://40.76.39.221:3000/signup',
 };
 
 /*

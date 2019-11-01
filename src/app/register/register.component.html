@@ -1,0 +1,49 @@
+<div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-5 mx-auto">
+                <div class="modal-dialog" role="document"></div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">HackEnglish</h5>
+                    </div>
+                    <div class="modal-body">
+    
+                        <form action="">
+                            <div class="form-group">
+                                <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                                <label for="formGroupExampleInput" class="bmd-label-floating">First Name</label>
+                                <input type="text" [formControl]="firstName" class="form-control"
+                                    id="formGroupExampleInput">
+                            </div>
+                            <div class="form-group">
+                                <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                                <label for="formGroupExampleInput" class="bmd-label-floating">Last Name</label>
+                                <input type="text" [formControl]="lastName" class="form-control"
+                                    id="formGroupExampleInput">
+                            </div>
+                            <div class="form-group">
+                                <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                                <label for="formGroupExampleInput" class="bmd-label-floating">Email</label>
+                                <input type="text" [formControl]="emailField" class="form-control"
+                                    id="formGroupExampleInput">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <!-- manually specified -->
+                                <label for="formGroupExampleInput2" class="bmd-label-floating">Password</label>
+                                <input type="password" [formControl]="passwordField" class="form-control"
+                                    id="formGroupExampleInput2">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label for="formGroupExampleInput2" class="bmd-label-floating">Confirm password</label>
+                                <input type="password" [formControl]="confirmPass" class="form-control"
+                                    id="formGroupExampleInput2">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-raised btn-primary" (click)="register()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

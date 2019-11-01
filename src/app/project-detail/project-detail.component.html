@@ -11,7 +11,7 @@
                 <h4 class="card-title">{{ 'Resources' }}</h4>
                 <ul>
                     <div *ngFor="let concept of project.concepts">
-                        <a [href]="concept.link">
+                        <a [href]="concept.link" target="_blank">
                             <li>{{concept.title}}</li>
                         </a>
                     </div>

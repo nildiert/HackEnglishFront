@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../http/http.service';
-import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
+import { Concept } from 'src/app/models/concept.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService {
+export class ConceptsService {
 
-
-  people: User[];
+  people: Concept[];
   httpOptions = { 
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -21,10 +20,8 @@ export class PeopleService {
   constructor(private http: HttpClient, httpService: HttpService) {
   }
 
-  getUser(id: string) {
-    return this.http.get<any>(environment.url_user + id, this.httpOptions);
+  getConcepts() {
+    return this.http.get<any>(environment.url_concepts + localStorage.user_id, this.httpOptions);
   }
-  getAllPeople() {
-    return this.http.get<any>(environment.url_user, this.httpOptions);
-  }
+
 }
