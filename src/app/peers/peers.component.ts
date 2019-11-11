@@ -27,7 +27,6 @@ export class PeersComponent implements OnInit {
     this.peopleService.getAllPeople()
     .subscribe((response: any) => {
       this.people = response;
-      console.log(this.people);
     });
   }
 

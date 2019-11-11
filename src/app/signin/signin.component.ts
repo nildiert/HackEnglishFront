@@ -5,6 +5,8 @@ import { SigninService } from '../services/login/signin.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
+import Swal from 'sweetalert2';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -41,13 +43,22 @@ export class SigninComponent implements OnInit {
       };
       this.authService.signIn(newLogin)
         .subscribe((response: any) => {
-          if (response) {
-            localStorage.setItem('auth_token', response.auth_token);
-            localStorage.setItem('user_id', response.user_id);
-            this.router.navigate(['projects']);
-          } else {
-            console.log('null');
-          }
+          localStorage.setItem('auth_token', response.auth_token);
+          localStorage.setItem('user_id', response.user_id);
+          Swal.fire({
+            title: 'You are welcome!',
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.router.navigate(['projects']);
+        }, err => {
+          Swal.fire({
+            title: 'Email or password is wrong',
+            type: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          });
         });
     }
 

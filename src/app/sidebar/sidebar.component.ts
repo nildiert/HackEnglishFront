@@ -12,6 +12,7 @@ import { PeopleService } from '../services/people/people.service';
 export class SidebarComponent implements OnInit {
 
 
+  img = 'https://files.slack.com/files-pri/T0ENXA7A8-FQ4663ZAT/hack-logo.png';
   photo: string;
   constructor(
     private httpService: HttpService,

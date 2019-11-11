@@ -1,3 +1,9 @@
+
+$bg-color: #424242;
+$hl-color: #2196F3;
+$muted-color: mix(white, $bg-color, 50%);
+$trans-time: 300ms;
+$width: 150px;
 h5 {
     color: rgb(83, 83, 83);
 }
@@ -5,6 +11,33 @@ h5 {
 .button-w {
     width: 40% !important;
 }
+
+input,
+textarea {
+  background: none;
+  color: $muted-color;
+  font-size: 18px;
+  padding: 10px 10px 10px 0px;
+  display: inline;
+  text-align: center; 
+  width: $width;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $muted-color;
+  &:focus {
+    outline: none;
+  }
+  &:focus ~ label,
+  &:valid ~ label {
+    top: -14px;
+    font-size: 12px;
+    color: $hl-color;
+  }
+  &:focus ~ .bar:before {
+    width: $width;
+  }
+}
+
 
 .form-group {
     padding: 30px 0;

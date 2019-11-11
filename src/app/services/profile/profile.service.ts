@@ -17,6 +17,6 @@ export class ProfileService {
 
   getProfile(id: string) {
     // return this.http.get<User>(environment.user+ `${id}`, this.httpOptions);
-    console.log('getProfile')
+    console.log('getProfile');
   }
 }
